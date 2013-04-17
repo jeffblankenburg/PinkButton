@@ -42,7 +42,7 @@
                 <TextBlock Text="*" Foreground="#ED2793" TextAlignment="Center" FontFamily="Assets/Fonts/HelveticaNeueLTStd-Md.otf#HelveticaNeueLT Std Med" FontSize="25" />
             </StackPanel>
         </StackPanel>
-        <Image Grid.Row="4" Source="Assets/Images/button_clickheretoupdateyourinfo.png" />
+        <Image x:Name="UpdateButton" Grid.Row="4" Source="Assets/Images/button_clickheretoupdateyourinfo.png" MouseLeftButtonDown="Update_MouseLeftButtonDown" MouseLeftButtonUp="Update_MouseLeftButtonUp" />
         <StackPanel Grid.Row="5" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,0">
             <TextBlock Text="*" Foreground="#ED2793" TextAlignment="Center" FontSize="25" FontFamily="Assets/Fonts/HelveticaNeueLTStd-Md.otf#HelveticaNeueLT Std Med" VerticalAlignment="Top" />
             <TextBlock Text="No charge to you.  Your insurance company will pay any applicable charges." Foreground="#393030" TextAlignment="Center" FontFamily="Assets/Fonts/HelveticaNeueLTStd-Md.otf#HelveticaNeueLT Std Med" FontSize="12" Margin="0,4,0,0" />

@@ -15,7 +15,7 @@
     <!--LayoutRoot is the root grid where all page content is placed-->
     <Grid x:Name="LayoutRoot" Background="Transparent">
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="158"/>
             <RowDefinition Height="100"/>
             <RowDefinition Height="430"/>
             <RowDefinition Height="48"/>
@@ -35,27 +35,27 @@
                 <ColumnDefinition Width="40" />
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="2*"/>
+                <RowDefinition Height="48"/>
+                <RowDefinition Height="48"/>
+                <RowDefinition Height="48"/>
+                <RowDefinition Height="48"/>
+                <RowDefinition Height="48"/>
+                <RowDefinition Height="48"/>
+                <RowDefinition Height="48"/>
+                <RowDefinition Height="86"/>
             </Grid.RowDefinitions>
             <TextBlock Grid.Row="0" Text="*"  FontFamily="Assets/Fonts/HelveticaNeueLTStd-Md.otf#HelveticaNeueLT Std Med" Foreground="#666666" FontSize="30" TextAlignment="Right" Margin="0,5,10,0" />
-            <TextBox Grid.Row="0" Grid.Column="1" Text="Name" Margin="-8" Foreground="#666666" VerticalAlignment="Top" FontSize="20" />
+            <TextBox x:Name="NameBox" Grid.Row="0" Grid.Column="1" Text="Name" Margin="-8" Foreground="#666666" VerticalAlignment="Top" FontSize="20" GotFocus="NameBox_GotFocus" LostFocus="NameBox_LostFocus" />
             <TextBlock Grid.Row="1" Text="*"  FontFamily="Assets/Fonts/HelveticaNeueLTStd-Md.otf#HelveticaNeueLT Std Med" Foreground="#666666" FontSize="30" TextAlignment="Right" Margin="0,5,10,0" />
-            <TextBox Grid.Row="1" Grid.Column="1" Text="Address" Margin="-8" Foreground="#666666" VerticalAlignment="Top" FontSize="20" />
+            <TextBox x:Name="AddressBox" Grid.Row="1" Grid.Column="1" Text="Address" Margin="-8" Foreground="#666666" VerticalAlignment="Top" FontSize="20" GotFocus="AddressBox_GotFocus" LostFocus="AddressBox_LostFocus" />
             <TextBlock Grid.Row="2" Text="*"  FontFamily="Assets/Fonts/HelveticaNeueLTStd-Md.otf#HelveticaNeueLT Std Med" Foreground="#666666" FontSize="30" TextAlignment="Right" Margin="0,5,10,0" />
-            <TextBox Grid.Row="2" Grid.Column="1" Text="Mobile Phone #" Margin="-8" Foreground="#666666" VerticalAlignment="Top" FontSize="20" />
+            <TextBox x:Name="PhoneBox" Grid.Row="2" Grid.Column="1" Text="Mobile Phone #" Margin="-8" Foreground="#666666" VerticalAlignment="Top" FontSize="20" GotFocus="PhoneBox_GotFocus" LostFocus="PhoneBox_LostFocus" />
             <TextBlock Grid.Row="3" Text="*"  FontFamily="Assets/Fonts/HelveticaNeueLTStd-Md.otf#HelveticaNeueLT Std Med" Foreground="#666666" FontSize="30" TextAlignment="Right" Margin="0,5,10,0" />
-            <TextBox Grid.Row="3" Grid.Column="1" Text="Email Address" Margin="-8" Foreground="#666666" VerticalAlignment="Top" FontSize="20" />
-            <TextBox Grid.Row="4" Grid.Column="1" Text="Make/model of your car" Margin="-8" Foreground="#666666" VerticalAlignment="Top" FontSize="20" />
-            <TextBox Grid.Row="5" Grid.Column="1" Text="Your insurance company" Margin="-8" Foreground="#666666" VerticalAlignment="Top" FontSize="20" />
-            <TextBox Grid.Row="6" Grid.Column="1" Text="Deductible amount" Margin="-8" Foreground="#666666" VerticalAlignment="Top" FontSize="20" />
-            <TextBox Grid.Row="7" Grid.Column="1" Text="Text message you'd like your emergency contact to receive" TextWrapping="Wrap" Margin="-8" Foreground="#666666" VerticalAlignment="Top" FontSize="20" />
+            <TextBox x:Name="EmailBox" Grid.Row="3" Grid.Column="1" Text="Email Address" Margin="-8" Foreground="#666666" VerticalAlignment="Top" FontSize="20" GotFocus="EmailBox_GotFocus" LostFocus="EmailBox_LostFocus" />
+            <TextBox x:Name="CarModelBox" Grid.Row="4" Grid.Column="1" Text="Make/Model of your car" Margin="-8" Foreground="#666666" VerticalAlignment="Top" FontSize="20" GotFocus="CarModelBox_GotFocus" LostFocus="CarModelBox_LostFocus" />
+            <TextBox x:Name="InsuranceBox" Grid.Row="5" Grid.Column="1" Text="Your insurance company" Margin="-8" Foreground="#666666" VerticalAlignment="Top" FontSize="20" GotFocus="InsuranceBox_GotFocus" LostFocus="InsuranceBox_LostFocus" />
+            <TextBox x:Name="DeductibleBox" Grid.Row="6" Grid.Column="1" Text="Deductible amount" Margin="-8" Foreground="#666666" VerticalAlignment="Top" FontSize="20" GotFocus="DeductibleBox_GotFocus" LostFocus="DeductibleBox_LostFocus" />
+            <TextBox x:Name="TextMessageBox" MaxLength="150" Grid.Row="7" Grid.Column="1" Text="Text message you'd like your emergency contact to receive" TextWrapping="Wrap" Margin="-8" Foreground="#666666" VerticalAlignment="Top" FontSize="20" GotFocus="TextMessageBox_GotFocus" LostFocus="TextMessageBox_LostFocus" />
         </Grid>
         <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top">
             <Image x:Name="SaveButton" Source="Assets/Images/button_save.png" MouseLeftButtonUp="SaveButton_MouseLeftButtonUp" />

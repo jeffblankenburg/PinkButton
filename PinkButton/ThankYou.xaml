@@ -1,0 +1,49 @@
+﻿<phone:PhoneApplicationPage
+    x:Class="PinkButton.ThankYou"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    mc:Ignorable="d">
+
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="158"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="220"/>
+            <RowDefinition Height="48"/>
+        </Grid.RowDefinitions>
+        <Image Source="Assets/Images/header.png" />
+        <Image Grid.Row="1" Grid.RowSpan="5" Source="Assets/Images/background.png" VerticalAlignment="Top" Stretch="UniformToFill"  />
+        <StackPanel Grid.Row="1" Margin="0,20,0,20">
+            <TextBlock Text="Thank you!" Foreground="#393030" FontFamily="Assets/Fonts/HelveticaNeueLTStd-Md.otf#HelveticaNeueLT Std Med" TextAlignment="Center" FontSize="26" />
+            <TextBlock Text="Your information has been saved." Foreground="#393030" FontFamily="Assets/Fonts/HelveticaNeueLTStd-Md.otf#HelveticaNeueLT Std Med" TextAlignment="Center" FontSize="26" />
+            <StackPanel  HorizontalAlignment="Center" Margin="10,20,10,0">
+                <TextBlock Text="If you're ever in an accident, just push the" Foreground="#393030" TextAlignment="Center" FontSize="20" FontFamily="Assets/Fonts/HelveticaNeueLTStd-Md.otf#HelveticaNeueLT Std Med" />
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Pink Button" Foreground="#ED2793" TextAlignment="Center" FontSize="20" FontFamily="Assets/Fonts/HelveticaNeueLTStd-Md.otf#HelveticaNeueLT Std Med" />
+                    <TextBlock Text=" and let us handle everything for you!" Foreground="#393030" TextAlignment="Center" FontSize="20" FontFamily="Assets/Fonts/HelveticaNeueLTStd-Md.otf#HelveticaNeueLT Std Med" />
+                </StackPanel>
+            </StackPanel>
+            <StackPanel  HorizontalAlignment="Center" Margin="10,20,10,0">
+                <TextBlock Text="We'll call back immediately to confirm you need help, then we'll send someone out with a tow truck, a rental car, or whatever you need." Foreground="#393030" TextAlignment="Center" FontSize="20" FontFamily="Assets/Fonts/HelveticaNeueLTStd-Md.otf#HelveticaNeueLT Std Med" TextWrapping="Wrap"/>
+                <TextBlock Text="All free of charge! *" Foreground="#ED2793" TextAlignment="Center" FontSize="20" FontFamily="Assets/Fonts/HelveticaNeueLTStd-Md.otf#HelveticaNeueLT Std Med" />
+            </StackPanel>
+            <StackPanel  HorizontalAlignment="Center" Margin="10,20,10,0">
+                <TextBlock Text="Accidents are stressful.  We want you to be able to get on with your day with the least possible disruption." Foreground="#393030" TextAlignment="Center" FontSize="20" FontFamily="Assets/Fonts/HelveticaNeueLTStd-Md.otf#HelveticaNeueLT Std Med" TextWrapping="Wrap"/>
+            </StackPanel>
+        </StackPanel>
+        <Image x:Name="ReturnButton" Grid.Row="2" Source="Assets/Images/button_returntohome.png" MouseLeftButtonUp="Return_MouseLeftButtonUp" />
+        <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <TextBlock Text="*" Foreground="#ED2793" TextAlignment="Center" FontSize="25" FontFamily="Assets/Fonts/HelveticaNeueLTStd-Md.otf#HelveticaNeueLT Std Med" VerticalAlignment="Top" />
+            <TextBlock Text="No charge to you.  Your insurance company will pay any applicable charges." Foreground="#393030" TextAlignment="Center" FontFamily="Assets/Fonts/HelveticaNeueLTStd-Md.otf#HelveticaNeueLT Std Med" FontSize="12" Margin="0,4,0,0" />
+        </StackPanel>
+    </Grid>
+
+</phone:PhoneApplicationPage>
