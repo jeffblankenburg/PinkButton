@@ -59,7 +59,7 @@
         </Grid>
         <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top">
             <Image x:Name="SaveButton" Source="Assets/Images/button_save.png" MouseLeftButtonUp="SaveButton_MouseLeftButtonUp" />
-            <Image x:Name="SkipButton" Source="Assets/Images/button_skipthisstep.png" MouseLeftButtonUp="SkipButton_MouseLeftButtonUp" />
+            <Image Opacity=".25" x:Name="SkipButton" Source="Assets/Images/button_skipthisstep.png" MouseLeftButtonUp="SkipButton_MouseLeftButtonUp" />
         </StackPanel>
         <TextBlock Grid.Row="4" Text="You can always add or change your info later." FontFamily="Assets/Fonts/HelveticaNeueLTStd-Md.otf#HelveticaNeueLT Std Med" TextAlignment="Center" FontSize="15" Foreground="#666666" VerticalAlignment="Center" />
     </Grid>

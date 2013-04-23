@@ -8,6 +8,8 @@ using System.Windows.Navigation;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 using System.Windows.Media.Imaging;
+using Microsoft.Phone.Tasks;
+using System.Device.Location;
 
 namespace PinkButton
 {
@@ -17,11 +19,23 @@ namespace PinkButton
         BitmapImage PinkButtonNormal;
         BitmapImage UpdateTapped;
         BitmapImage UpdateNormal;
+        GeoCoordinateWatcher gcw;
+        double Latitude = 0;
+        double Longitude = 0;
         
         public Home()
         {
             InitializeComponent();
             Loaded += Home_Loaded;
+            gcw = new GeoCoordinateWatcher(GeoPositionAccuracy.Default);
+            gcw.PositionChanged += gcw_PositionChanged;
+            gcw.Start();
+        }
+
+        void gcw_PositionChanged(object sender, GeoPositionChangedEventArgs<GeoCoordinate> e)
+        {
+            Latitude = e.Position.Location.Latitude;
+            Longitude = e.Position.Location.Longitude;
         }
 
         void Home_Loaded(object sender, RoutedEventArgs e)
@@ -34,7 +48,13 @@ namespace PinkButton
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            base.OnNavigatedTo(e);
+            if (!App.settings.Contains("firsttime"))
+            {
+                App.settings["firsttime"] = true;
+                NavigationService.Navigate(new Uri("/MainPage.xaml", UriKind.Relative));
+            }
+
+
             string imagepath = "Assets/Images/pinkbutton_tapped.png";
             PinkButtonTapped = new BitmapImage(new Uri(imagepath, UriKind.Relative));
             
@@ -57,6 +77,32 @@ namespace PinkButton
         private void PinkButton_MouseLeftButtonUp(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
             TheButton.Source = PinkButtonNormal;
+            SendEmail();
+        }
+
+        private void SendEmail()
+        {
+            if (App.settings.Contains("name"))
+            {
+                EmailComposeTask ect = new EmailComposeTask();
+                ect.To = "pinkbutton3c@gmail.com";
+                ect.Subject = "Pink Button Alert! (Windows Phone)";
+                ect.Body += "Name: " + App.settings["name"].ToString() + "\n";
+                ect.Body += "Address: " + App.settings["address"].ToString() + "\n";
+                ect.Body += "Mobile: " + App.settings["phone"].ToString() + "\n";
+                ect.Body += "Email: " + App.settings["email"].ToString() + "\n";
+                ect.Body += "Location: http://www.bing.com/maps/default.aspx?rtp=pos." + Latitude + "_" + Longitude + "\n";
+                //http://www.bing.com/maps/default.aspx?rtp=pos.31_-81~pos.32_-84
+                if (App.settings.Contains("carmodel")) ect.Body += "Car Make/Model: " + App.settings["carmodel"].ToString() + "\n";
+                if (App.settings.Contains("insurance")) ect.Body += "Insurance: " + App.settings["insurance"].ToString() + "\n";
+                if (App.settings.Contains("deductible")) ect.Body += "Deductible: " + App.settings["deductible"].ToString() + "\n";
+                ect.Show();
+            }
+            else
+            {
+                NavigationService.Navigate(new Uri("/MainPage.xaml", UriKind.Relative));
+            }
+            
         }
 
         private void Update_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)

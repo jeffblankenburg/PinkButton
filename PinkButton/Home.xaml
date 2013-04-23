@@ -14,7 +14,7 @@
 
     <Grid x:Name="LayoutRoot" Background="Transparent">
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="158"/>
             <RowDefinition Height="130"/>
             <RowDefinition Height="207"/>
             <RowDefinition Height="160"/>
