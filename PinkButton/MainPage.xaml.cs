@@ -12,6 +12,7 @@ using System.Windows.Shapes;
 using Microsoft.Phone.Controls;
 using System.Windows.Navigation;
 using System.Text.RegularExpressions;
+using Microsoft.Phone.Tasks;
 
 namespace PinkButton
 {
@@ -87,6 +88,7 @@ namespace PinkButton
             if (CarModelBox.Text != "Make/Model of your car") App.settings["carmodel"] = CarModelBox.Text;
             if (InsuranceBox.Text != "Your insurance company") App.settings["insurance"] = InsuranceBox.Text;
             if (DeductibleBox.Text != "Deductible amount") App.settings["deductible"] = DeductibleBox.Text;
+            if (ContactNumberBox.Text != "Emergency contact phone number") App.settings["contactnumber"] = ContactNumberBox.Text;
             if (TextMessageBox.Text != "Text message you'd like your emergency contact to receive") App.settings["textmessage"] = TextMessageBox.Text;
             return valid;
         }
@@ -174,6 +176,24 @@ namespace PinkButton
         private void TextMessageBox_LostFocus(object sender, RoutedEventArgs e)
         {
             if (TextMessageBox.Text == "") TextMessageBox.Text = "Text message you'd like your emergency contact to receive";
+        }
+
+        private void ContactNumberBox_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (ContactNumberBox.Text == "") ContactNumberBox.Text = "Emergency contact phone number";
+        }
+
+        private void ContactNumberBox_GotFocus(object sender, RoutedEventArgs e)
+        {
+            if (ContactNumberBox.Text == "Emergency contact phone number") ContactNumberBox.Text = "";
+            PhoneNumberChooserTask pnct = new PhoneNumberChooserTask();
+            pnct.Completed += pnct_Completed;
+            pnct.Show();
+        }
+
+        void pnct_Completed(object sender, PhoneNumberResult e)
+        {
+            ContactNumberBox.Text = e.PhoneNumber;            
         }
     }
 }

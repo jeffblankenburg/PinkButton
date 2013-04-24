@@ -22,6 +22,7 @@ namespace PinkButton
         GeoCoordinateWatcher gcw;
         double Latitude = 0;
         double Longitude = 0;
+        bool SendText = false;
         
         public Home()
         {
@@ -54,6 +55,20 @@ namespace PinkButton
                 NavigationService.Navigate(new Uri("/MainPage.xaml", UriKind.Relative));
             }
 
+            if (SendText)
+            {
+                SmsComposeTask sct = new SmsComposeTask();
+                if (App.settings.Contains("textmessage"))
+                {
+                    sct.Body = App.settings["textmessage"].ToString();
+                }
+                if (App.settings.Contains("contactnumber"))
+                {
+                    sct.To = App.settings["contactnumber"].ToString();
+                }
+                sct.Show();
+                SendText = false;
+            }
 
             string imagepath = "Assets/Images/pinkbutton_tapped.png";
             PinkButtonTapped = new BitmapImage(new Uri(imagepath, UriKind.Relative));
@@ -96,6 +111,7 @@ namespace PinkButton
                 if (App.settings.Contains("carmodel")) ect.Body += "Car Make/Model: " + App.settings["carmodel"].ToString() + "\n";
                 if (App.settings.Contains("insurance")) ect.Body += "Insurance: " + App.settings["insurance"].ToString() + "\n";
                 if (App.settings.Contains("deductible")) ect.Body += "Deductible: " + App.settings["deductible"].ToString() + "\n";
+                SendText = true;
                 ect.Show();
             }
             else

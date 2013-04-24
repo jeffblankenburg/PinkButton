@@ -17,7 +17,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="158"/>
             <RowDefinition Height="100"/>
-            <RowDefinition Height="430"/>
+            <RowDefinition Height="458"/>
             <RowDefinition Height="48"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
@@ -42,6 +42,7 @@
                 <RowDefinition Height="48"/>
                 <RowDefinition Height="48"/>
                 <RowDefinition Height="48"/>
+                <RowDefinition Height="48"/>
                 <RowDefinition Height="86"/>
             </Grid.RowDefinitions>
             <TextBlock Grid.Row="0" Text="*"  FontFamily="Assets/Fonts/HelveticaNeueLTStd-Md.otf#HelveticaNeueLT Std Med" Foreground="#666666" FontSize="30" TextAlignment="Right" Margin="0,5,10,0" />
@@ -55,7 +56,8 @@
             <TextBox x:Name="CarModelBox" Grid.Row="4" Grid.Column="1" Text="Make/Model of your car" Margin="-8" Foreground="#666666" VerticalAlignment="Top" FontSize="20" GotFocus="CarModelBox_GotFocus" LostFocus="CarModelBox_LostFocus" />
             <TextBox x:Name="InsuranceBox" Grid.Row="5" Grid.Column="1" Text="Your insurance company" Margin="-8" Foreground="#666666" VerticalAlignment="Top" FontSize="20" GotFocus="InsuranceBox_GotFocus" LostFocus="InsuranceBox_LostFocus" />
             <TextBox x:Name="DeductibleBox" Grid.Row="6" Grid.Column="1" Text="Deductible amount" Margin="-8" Foreground="#666666" VerticalAlignment="Top" FontSize="20" GotFocus="DeductibleBox_GotFocus" LostFocus="DeductibleBox_LostFocus" />
-            <TextBox x:Name="TextMessageBox" MaxLength="150" Grid.Row="7" Grid.Column="1" Text="Text message you'd like your emergency contact to receive" TextWrapping="Wrap" Margin="-8" Foreground="#666666" VerticalAlignment="Top" FontSize="20" GotFocus="TextMessageBox_GotFocus" LostFocus="TextMessageBox_LostFocus" />
+            <TextBox x:Name="ContactNumberBox" Grid.Row="7" Grid.Column="1" Text="Emergency contact phone number" Margin="-8" Foreground="#666666" VerticalAlignment="Top" FontSize="20" GotFocus="ContactNumberBox_GotFocus" LostFocus="ContactNumberBox_LostFocus" />
+            <TextBox x:Name="TextMessageBox" MaxLength="150" Grid.Row="8" Grid.Column="1" Text="Text message you'd like your emergency contact to receive" TextWrapping="Wrap" Margin="-8" Foreground="#666666" VerticalAlignment="Top" FontSize="20" GotFocus="TextMessageBox_GotFocus" LostFocus="TextMessageBox_LostFocus" />
         </Grid>
         <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top">
             <Image x:Name="SaveButton" Source="Assets/Images/button_save.png" MouseLeftButtonUp="SaveButton_MouseLeftButtonUp" />
